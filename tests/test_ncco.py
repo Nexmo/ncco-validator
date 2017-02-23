@@ -31,6 +31,7 @@ INVALID_FILES = [
     "talk-invalid-text",
     "talk-invalid-voice",
     "talk-missing-text",
+    "unknown-property",
 ]
 
 schema = json.load(open('ncco-schema.json'))
