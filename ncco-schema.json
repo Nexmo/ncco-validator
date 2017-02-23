@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "NCCO Schema",
+
+  "definitions": {
+    "ncco": {
+      "oneOf": [
+        { "$ref": "#/definitions/ncco-record" },
+        { "$ref": "#/definitions/ncco-talk" }
+      ]
+    },
+    "ncco-base": {
+      "required": ["action"]
+    },
+    "ncco-record": {
+      "allOf": [
+        { "$ref": "#/definitions/ncco-base" },
+        {
+          "properties": {
+            "action": { "enum": ["record"] },
+            "format": { "enum": ["mp3", "wav"] },
+            "endOnSilence": {
+              "type": "integer",
+              "minimum": 3,
+              "maximum": 10
+            },
+            "endOnKey": {
+              "type": "string",
+              "pattern": "^[0-9#\\*]$"
+            },
+            "timeOut": {
+              "type": "integer",
+              "minimum": 3,
+              "maximum": 7200
+            },
+            "beepStart": {
+              "type": "boolean"
+            },
+            "eventUrl": {
+              "type": "string"
+            },
+            "eventMethod": {
+              "type": "string",
+              "enum": ["POST", "GET"]
+            }
+          }
+        }
+      ]
+    },
+    "ncco-talk": {
+      "allOf": [
+        { "$ref": "#/definitions/ncco-base" },
+        {
+          "properties": {
+            "action": { "enum": ["talk"] }
+          }
+        }
+      ]
+    }
+  },
+
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/ncco"
+  },
+  "minItems": 1
+}
