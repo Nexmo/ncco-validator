@@ -52,9 +52,77 @@
         { "$ref": "#/definitions/ncco-base" },
         {
           "properties": {
-            "action": { "enum": ["talk"] }
-          }
+            "action": { "enum": ["talk"] },
+            "text": {
+              "type": "string",
+              "maxLength": 1500
+            },
+            "bargeIn": {
+              "type": "boolean"
+            },
+            "loop": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "voiceName": {
+              "$ref": "#/definitions/voices"
+            }
+          },
+          "required": ["text"]
         }
+      ]
+    },
+    "voices": {
+      "enum": [
+        "Agnieszka",
+        "Amy",
+        "Astrid",
+        "Brian",
+        "Carla",
+        "Carmen",
+        "Celine",
+        "Chantal",
+        "Chipmunk",
+        "Conchita",
+        "Cristiano",
+        "Dora",
+        "Emma",
+        "Enrique",
+        "Eric",
+        "Ewa",
+        "Filiz",
+        "Geraint",
+        "Giorgio",
+        "Gwyneth",
+        "Hans",
+        "Ines",
+        "Ivy",
+        "Jacek",
+        "Jan",
+        "Jennifer",
+        "Joey",
+        "Justin",
+        "Karl",
+        "Kendra",
+        "Kimberly",
+        "Liv",
+        "Lotte",
+        "Mads",
+        "Maja",
+        "Marlene",
+        "Mathieu",
+        "Maxim",
+        "Miguel",
+        "Naja",
+        "Nicole",
+        "Penelope",
+        "Raveena",
+        "Ricardo",
+        "Ruben",
+        "Russell",
+        "Salli",
+        "Tatyana",
+        "Vitoria"
       ]
     }
   },

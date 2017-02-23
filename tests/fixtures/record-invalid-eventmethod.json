@@ -1,0 +1,10 @@
+[{
+    "action": "record",
+    "format": "mp3",
+    "endOnSilence": 5,
+    "endOnKey": "#",
+    "timeOut": 700,
+    "beepStart": true,
+    "eventUrl": "https://api.example.com/this-is-a-test",
+    "eventMethod": "BONK"
+}]

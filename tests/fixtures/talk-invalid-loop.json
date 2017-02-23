@@ -1,0 +1,9 @@
+[
+  {
+    "action": "talk",
+    "text": "This is some boring text",
+    "bargeIn": true,
+    "loop": -1,
+    "voiceName": "Nicole"
+  }
+]

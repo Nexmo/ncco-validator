@@ -9,11 +9,24 @@ from pytest import raises
 
 VALID_FILES = [
     "russell",
+    "record-full",
+    "talk-full",
 ]
 
 INVALID_FILES = [
     "invalid-action",
     "missing-action",
+    "record-invalid-beepstart",
+    "record-invalid-endonkey",
+    "record-invalid-endonsilence",
+    "record-invalid-eventmethod",
+    "record-invalid-format",
+    "record-invalid-timeout",
+    "talk-invalid-bargein",
+    "talk-invalid-loop",
+    "talk-invalid-text",
+    "talk-invalid-voice",
+    "talk-missing-text",
 ]
 
 schema = json.load(open('ncco-schema.json'))
