@@ -5,12 +5,46 @@
   "definitions": {
     "ncco": {
       "oneOf": [
+        { "$ref": "#/definitions/ncco-connect" },
+        { "$ref": "#/definitions/ncco-conversation" },
+        { "$ref": "#/definitions/ncco-input" },
         { "$ref": "#/definitions/ncco-record" },
+        { "$ref": "#/definitions/ncco-stream" },
         { "$ref": "#/definitions/ncco-talk" }
       ]
     },
     "ncco-base": {
       "required": ["action"]
+    },
+    "ncco-connect": {
+      "allOf": [
+        { "$ref": "#/definitions/ncco-base" },
+        {
+          "properties": {
+            "action": { "enum": ["connect"] }
+          }
+        }
+      ]
+    },
+    "ncco-conversation": {
+      "allOf": [
+        { "$ref": "#/definitions/ncco-base" },
+        {
+          "properties": {
+            "action": { "enum": ["conversation"] }
+          }
+        }
+      ]
+    },
+    "ncco-input": {
+      "allOf": [
+        { "$ref": "#/definitions/ncco-base" },
+        {
+          "properties": {
+            "action": { "enum": ["input"] }
+          }
+        }
+      ]
     },
     "ncco-record": {
       "allOf": [
@@ -43,6 +77,16 @@
               "type": "string",
               "enum": ["POST", "GET"]
             }
+          }
+        }
+      ]
+    },
+    "ncco-stream": {
+      "allOf": [
+        { "$ref": "#/definitions/ncco-base" },
+        {
+          "properties": {
+            "action": { "enum": ["stream"] }
           }
         }
       ]

@@ -9,7 +9,11 @@ from pytest import raises
 
 VALID_FILES = [
     "russell",
+    "connect-full",
+    "conversation-full",
+    "input-full",
     "record-full",
+    "stream-full",
     "talk-full",
 ]
 
