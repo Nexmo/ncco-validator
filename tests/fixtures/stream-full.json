@@ -1,5 +1,9 @@
 [
   {
-    "action": "stream"
+    "action": "stream",
+    "streamUrl": ["https://example.com/streams/music.mp3"],
+    "level": 0.5,
+    "bargeIn": false,
+    "loop": 2
   }
 ]
