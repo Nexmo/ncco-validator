@@ -3,6 +3,75 @@
   "title": "NCCO Schema",
 
   "definitions": {
+    "endpoint": {
+      "oneOf": [
+        { "$ref": "#/definitions/endpoint-phone" },
+        { "$ref": "#/definitions/endpoint-websocket" },
+        { "$ref": "#/definitions/endpoint-sip" }
+      ]
+    },
+    "endpoint-base": {
+      "required": ["type"]
+    },
+    "endpoint-phone": {
+      "allOf": [
+        { "$ref": "#/definitions/endpoint-base" },
+        {
+          "properties": {
+            "type": { "enum": ["phone"] },
+            "number": {
+              "type": "string",
+              "minLength": 10,
+              "maxLength": 15,
+              "pattern": "^[0-9]+$"
+            },
+            "dtmfAnswer": {
+              "type": "string",
+              "pattern": "^[0-9#\\*p]*$"
+            }
+          },
+          "required": ["number"]
+        }
+      ]
+    },
+    "endpoint-websocket": {
+      "allOf": [
+        { "$ref": "#/definitions/endpoint-base" },
+        {
+          "properties": {
+            "type": { "enum": ["websocket"] },
+            "uri": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^wss?:"
+            },
+            "content-type": {
+              "type": "string"
+            },
+            "headers": {
+              "type": "object"
+            }
+          },
+          "required": ["uri"]
+        }
+      ]
+    },
+    "endpoint-sip": {
+      "allOf": [
+        { "$ref": "#/definitions/endpoint-base" },
+        {
+          "properties": {
+            "type": { "enum": ["sip"] },
+            "uri": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^sips?:"
+            }
+          },
+          "required": ["uri"]
+        }
+      ]
+    },
     "ncco": {
       "oneOf": [
         { "$ref": "#/definitions/ncco-connect" },
@@ -21,8 +90,10 @@
         { "$ref": "#/definitions/ncco-base" },
         {
           "properties": {
-            "action": { "enum": ["connect"] }
-          }
+            "action": { "enum": ["connect"] },
+            "endpoint": { "$ref": "#/definitions/endpoint" }
+          },
+          "required": ["endpoint"]
         }
       ]
     },
@@ -32,7 +103,8 @@
         {
           "properties": {
             "action": { "enum": ["conversation"] }
-          }
+          },
+          "required": ["name"]
         }
       ]
     },
@@ -87,7 +159,8 @@
         {
           "properties": {
             "action": { "enum": ["stream"] }
-          }
+          },
+          "required": ["streamUrl"]
         }
       ]
     },
