@@ -1,10 +1,10 @@
 [
   {
     "action": "connect",
-    "endpoint": {
+    "endpoint": [{
       "type": "sip",
       "uri": "sip:thing@blah.com"
-    },
+    }],
     "from": "447700900078",
     "eventType": "synchronous",
     "timeout": 61,

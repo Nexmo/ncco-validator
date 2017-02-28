@@ -1,11 +1,11 @@
 [
   {
     "action": "connect",
-    "endpoint": {
+    "endpoint": [{
       "type": "phone",
       "number": "447700900077",
       "dtmfAnswer": "4p4"
-    },
+    }],
     "from": "447700900078",
     "eventType": "synchronous",
     "timeout": 61,

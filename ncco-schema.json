@@ -91,7 +91,10 @@
         {
           "properties": {
             "action": { "enum": ["connect"] },
-            "endpoint": { "$ref": "#/definitions/endpoint" },
+            "endpoint": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/endpoint" }
+            },
             "from": {
               "type": "string",
               "pattern": "^[0-9]+$"
@@ -233,7 +236,26 @@
         { "$ref": "#/definitions/ncco-base" },
         {
           "properties": {
-            "action": { "enum": ["stream"] }
+            "action": { "enum": ["stream"] },
+            "streamUrl": {
+              "type": "array",
+              "items": {
+                "format": "uri",
+                "pattern": "^https?://"
+              }
+            },
+            "level": {
+              "type": "number",
+              "minimum": -1,
+              "maximum": 1
+            },
+            "bargeIn": {
+              "type": "boolean"
+            },
+            "loop": {
+              "type": "number",
+              "minimum": 0
+            }
           },
           "required": ["streamUrl"]
         }
