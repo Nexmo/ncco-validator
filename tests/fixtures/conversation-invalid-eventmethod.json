@@ -1,0 +1,12 @@
+[
+  {
+    "action": "conversation",
+    "name": "randomly-generated-name",
+    "record": true,
+    "musicOnHoldUrl": "https://example.com/musak",
+    "startOnEnter": true,
+    "endOnExit": true,
+    "eventUrl": "https://example.com/events",
+    "eventMethod": "POKE"
+  }
+]

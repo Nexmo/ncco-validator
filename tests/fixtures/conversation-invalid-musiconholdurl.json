@@ -1,0 +1,12 @@
+[
+  {
+    "action": "conversation",
+    "name": "randomly-generated-name",
+    "record": true,
+    "musicOnHoldUrl": "my-music.gif",
+    "startOnEnter": true,
+    "endOnExit": true,
+    "eventUrl": "https://example.com/events",
+    "eventMethod": "POST"
+  }
+]

@@ -132,7 +132,30 @@
         { "$ref": "#/definitions/ncco-base" },
         {
           "properties": {
-            "action": { "enum": ["conversation"] }
+            "action": { "enum": ["conversation"] },
+            "musicOnHoldUrl": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https?://"
+            },
+            "startOnEnter": {
+              "type": "boolean"
+            },
+            "endOnExit": {
+              "type": "boolean"
+            },
+            "record": {
+              "type": "boolean"
+            },
+            "eventUrl": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https?://"
+            },
+            "eventMethod": {
+              "type": "string",
+              "enum": ["GET", "POST"]
+            }
           },
           "required": ["name"]
         }
