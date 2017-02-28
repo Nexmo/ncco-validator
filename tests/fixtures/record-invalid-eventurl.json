@@ -1,0 +1,10 @@
+[{
+    "action": "record",
+    "format": "mp3",
+    "endOnSilence": 5,
+    "endOnKey": "#",
+    "timeOut": 700,
+    "beepStart": true,
+    "eventUrl": "does this look like a url to you?",
+    "eventMethod": "GET"
+}]

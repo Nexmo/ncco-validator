@@ -2,7 +2,7 @@
   {
     "action": "input",
     "timeOut": 5,
-    "maxDigits": 6,
+    "maxDigits": 21,
     "submitOnHash": true,
     "eventUrl": "https://api.example.com/this-is-a-test",
     "eventMethod": "GET"

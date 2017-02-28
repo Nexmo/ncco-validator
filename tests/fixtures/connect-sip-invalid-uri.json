@@ -1,0 +1,16 @@
+[
+  {
+    "action": "connect",
+    "endpoint": {
+      "type": "sip",
+      "uri": "https://thing@blah.com"
+    },
+    "from": "447700900078",
+    "eventType": "synchronous",
+    "timeout": 61,
+    "limit": 5,
+    "machineDetection": "hangup",
+    "eventUrl": "https://example.com/events",
+    "eventMethod": "POST"
+  }
+]

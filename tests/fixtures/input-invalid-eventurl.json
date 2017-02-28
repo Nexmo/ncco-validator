@@ -4,7 +4,7 @@
     "timeOut": 5,
     "maxDigits": 6,
     "submitOnHash": true,
-    "eventUrl": "https://api.example.com/this-is-a-test",
+    "eventUrl": "does this look like a url to you?",
     "eventMethod": "GET"
   }
 ]

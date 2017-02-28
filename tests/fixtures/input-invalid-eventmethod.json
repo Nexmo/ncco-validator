@@ -5,6 +5,6 @@
     "maxDigits": 6,
     "submitOnHash": true,
     "eventUrl": "https://api.example.com/this-is-a-test",
-    "eventMethod": "GET"
+    "eventMethod": "FINANGLE"
   }
 ]

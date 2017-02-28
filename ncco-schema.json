@@ -113,7 +113,27 @@
         { "$ref": "#/definitions/ncco-base" },
         {
           "properties": {
-            "action": { "enum": ["input"] }
+            "action": { "enum": ["input"] },
+            "timeOut": {
+              "type": "number",
+              "minimum": 0
+            },
+            "maxDigits": {
+              "minimum": 0,
+              "maximum": 20
+            },
+            "submitOnHash": {
+              "type": "boolean"
+            },
+            "eventUrl": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https?://"
+            },
+            "eventMethod": {
+              "type": "string",
+              "enum": ["GET", "POST"]
+            }
           }
         }
       ]
@@ -143,7 +163,9 @@
               "type": "boolean"
             },
             "eventUrl": {
-              "type": "string"
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https?://"
             },
             "eventMethod": {
               "type": "string",

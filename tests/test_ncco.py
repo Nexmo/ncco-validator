@@ -10,6 +10,8 @@ from pytest import raises
 VALID_FILES = [
     "russell",
     "connect-full",
+    "connect-sip-endpoint",
+    "connect-websocket-endpoint",
     "conversation-full",
     "input-full",
     "record-full",
@@ -18,12 +20,20 @@ VALID_FILES = [
 ]
 
 INVALID_FILES = [
+    "connect-sip-invalid-uri",
+    "connect-websocket-invalid-uri",
+    "input-invalid-eventmethod",
+    "input-invalid-eventurl",
+    "input-invalid-maxdigits",
+    "input-invalid-submitonhash",
+    "input-invalid-timout",
     "invalid-action",
     "missing-action",
     "record-invalid-beepstart",
     "record-invalid-endonkey",
     "record-invalid-endonsilence",
     "record-invalid-eventmethod",
+    "record-invalid-eventurl",
     "record-invalid-format",
     "record-invalid-timeout",
     "talk-invalid-bargein",
