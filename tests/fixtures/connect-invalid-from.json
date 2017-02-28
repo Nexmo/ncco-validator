@@ -1,0 +1,17 @@
+[
+  {
+    "action": "connect",
+    "endpoint": {
+      "type": "phone",
+      "number": "447700900077",
+      "dtmfAnswer": "4p4"
+    },
+    "from": true,
+    "eventType": "synchronous",
+    "timeout": 61,
+    "limit": 5,
+    "machineDetection": "hangup",
+    "eventUrl": "https://example.com/events",
+    "eventMethod": "POST"
+  }
+]

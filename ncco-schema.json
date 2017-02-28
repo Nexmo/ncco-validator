@@ -91,7 +91,37 @@
         {
           "properties": {
             "action": { "enum": ["connect"] },
-            "endpoint": { "$ref": "#/definitions/endpoint" }
+            "endpoint": { "$ref": "#/definitions/endpoint" },
+            "from": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            },
+            "eventType": {
+              "type": "string",
+              "enum": [ "synchronous" ]
+            },
+            "timeout": {
+              "type": "number",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 7200
+            },
+            "machineDetection": {
+              "type": "string",
+              "enum": [ "continue", "hangup" ]
+            },
+            "eventUrl": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https?://"
+            },
+            "eventMethod": {
+              "type": "string",
+              "enum": ["GET", "POST"]
+            }
           },
           "required": ["endpoint"]
         }

@@ -20,6 +20,13 @@ VALID_FILES = [
 ]
 
 INVALID_FILES = [
+    "connect-invalid-eventmethod",
+    "connect-invalid-eventtype",
+    "connect-invalid-eventurl",
+    "connect-invalid-from",
+    "connect-invalid-limit",
+    "connect-invalid-machinedetection",
+    "connect-invalid-timeout",
     "connect-sip-invalid-uri",
     "connect-websocket-invalid-uri",
     "input-invalid-eventmethod",
