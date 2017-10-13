@@ -1,24 +1,37 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "NCCO Schema",
-
   "definitions": {
     "endpoint": {
       "oneOf": [
-        { "$ref": "#/definitions/endpoint-phone" },
-        { "$ref": "#/definitions/endpoint-websocket" },
-        { "$ref": "#/definitions/endpoint-sip" }
+        {
+          "$ref": "#/definitions/endpoint-phone"
+        },
+        {
+          "$ref": "#/definitions/endpoint-websocket"
+        },
+        {
+          "$ref": "#/definitions/endpoint-sip"
+        }
       ]
     },
     "endpoint-base": {
-      "required": ["type"]
+      "required": [
+        "type"
+      ]
     },
     "endpoint-phone": {
       "allOf": [
-        { "$ref": "#/definitions/endpoint-base" },
+        {
+          "$ref": "#/definitions/endpoint-base"
+        },
         {
           "properties": {
-            "type": { "enum": ["phone"] },
+            "type": {
+              "enum": [
+                "phone"
+              ]
+            },
             "number": {
               "type": "string",
               "minLength": 10,
@@ -30,16 +43,24 @@
               "pattern": "^[0-9#\\*p]*$"
             }
           },
-          "required": ["number"]
+          "required": [
+            "number"
+          ]
         }
       ]
     },
     "endpoint-websocket": {
       "allOf": [
-        { "$ref": "#/definitions/endpoint-base" },
+        {
+          "$ref": "#/definitions/endpoint-base"
+        },
         {
           "properties": {
-            "type": { "enum": ["websocket"] },
+            "type": {
+              "enum": [
+                "websocket"
+              ]
+            },
             "uri": {
               "type": "string",
               "format": "uri",
@@ -52,48 +73,80 @@
               "type": "object"
             }
           },
-          "required": ["uri"]
+          "required": [
+            "uri"
+          ]
         }
       ]
     },
     "endpoint-sip": {
       "allOf": [
-        { "$ref": "#/definitions/endpoint-base" },
+        {
+          "$ref": "#/definitions/endpoint-base"
+        },
         {
           "properties": {
-            "type": { "enum": ["sip"] },
+            "type": {
+              "enum": [
+                "sip"
+              ]
+            },
             "uri": {
               "type": "string",
               "format": "uri",
               "pattern": "^sips?:"
             }
           },
-          "required": ["uri"]
+          "required": [
+            "uri"
+          ]
         }
       ]
     },
     "ncco": {
       "oneOf": [
-        { "$ref": "#/definitions/ncco-connect" },
-        { "$ref": "#/definitions/ncco-conversation" },
-        { "$ref": "#/definitions/ncco-input" },
-        { "$ref": "#/definitions/ncco-record" },
-        { "$ref": "#/definitions/ncco-stream" },
-        { "$ref": "#/definitions/ncco-talk" }
+        {
+          "$ref": "#/definitions/ncco-connect"
+        },
+        {
+          "$ref": "#/definitions/ncco-conversation"
+        },
+        {
+          "$ref": "#/definitions/ncco-input"
+        },
+        {
+          "$ref": "#/definitions/ncco-record"
+        },
+        {
+          "$ref": "#/definitions/ncco-stream"
+        },
+        {
+          "$ref": "#/definitions/ncco-talk"
+        }
       ]
     },
     "ncco-base": {
-      "required": ["action"]
+      "required": [
+        "action"
+      ]
     },
     "ncco-connect": {
       "allOf": [
-        { "$ref": "#/definitions/ncco-base" },
+        {
+          "$ref": "#/definitions/ncco-base"
+        },
         {
           "properties": {
-            "action": { "enum": ["connect"] },
+            "action": {
+              "enum": [
+                "connect"
+              ]
+            },
             "endpoint": {
               "type": "array",
-              "items": { "$ref": "#/definitions/endpoint" }
+              "items": {
+                "$ref": "#/definitions/endpoint"
+              }
             },
             "from": {
               "type": "string",
@@ -101,7 +154,9 @@
             },
             "eventType": {
               "type": "string",
-              "enum": [ "synchronous" ]
+              "enum": [
+                "synchronous"
+              ]
             },
             "timeout": {
               "type": "number",
@@ -114,28 +169,44 @@
             },
             "machineDetection": {
               "type": "string",
-              "enum": [ "continue", "hangup" ]
+              "enum": [
+                "continue",
+                "hangup"
+              ]
             },
             "eventUrl": {
-              "type": "string",
-              "format": "uri",
-              "pattern": "^https?://"
+              "type": "array",
+              "items": {
+                "format": "uri",
+                "pattern": "^https?://"
+              }
             },
             "eventMethod": {
               "type": "string",
-              "enum": ["GET", "POST"]
+              "enum": [
+                "GET",
+                "POST"
+              ]
             }
           },
-          "required": ["endpoint"]
+          "required": [
+            "endpoint"
+          ]
         }
       ]
     },
     "ncco-conversation": {
       "allOf": [
-        { "$ref": "#/definitions/ncco-base" },
+        {
+          "$ref": "#/definitions/ncco-base"
+        },
         {
           "properties": {
-            "action": { "enum": ["conversation"] },
+            "action": {
+              "enum": [
+                "conversation"
+              ]
+            },
             "musicOnHoldUrl": {
               "type": "string",
               "format": "uri",
@@ -151,25 +222,38 @@
               "type": "boolean"
             },
             "eventUrl": {
-              "type": "string",
-              "format": "uri",
-              "pattern": "^https?://"
+              "type": "array",
+              "items": {
+                "format": "uri",
+                "pattern": "^https?://"
+              }
             },
             "eventMethod": {
               "type": "string",
-              "enum": ["GET", "POST"]
+              "enum": [
+                "GET",
+                "POST"
+              ]
             }
           },
-          "required": ["name"]
+          "required": [
+            "name"
+          ]
         }
       ]
     },
     "ncco-input": {
       "allOf": [
-        { "$ref": "#/definitions/ncco-base" },
+        {
+          "$ref": "#/definitions/ncco-base"
+        },
         {
           "properties": {
-            "action": { "enum": ["input"] },
+            "action": {
+              "enum": [
+                "input"
+              ]
+            },
             "timeOut": {
               "type": "number",
               "minimum": 0
@@ -182,13 +266,18 @@
               "type": "boolean"
             },
             "eventUrl": {
-              "type": "string",
-              "format": "uri",
-              "pattern": "^https?://"
+              "type": "array",
+              "items": {
+                "format": "uri",
+                "pattern": "^https?://"
+              }
             },
             "eventMethod": {
               "type": "string",
-              "enum": ["GET", "POST"]
+              "enum": [
+                "GET",
+                "POST"
+              ]
             }
           }
         }
@@ -196,11 +285,22 @@
     },
     "ncco-record": {
       "allOf": [
-        { "$ref": "#/definitions/ncco-base" },
+        {
+          "$ref": "#/definitions/ncco-base"
+        },
         {
           "properties": {
-            "action": { "enum": ["record"] },
-            "format": { "enum": ["mp3", "wav"] },
+            "action": {
+              "enum": [
+                "record"
+              ]
+            },
+            "format": {
+              "enum": [
+                "mp3",
+                "wav"
+              ]
+            },
             "endOnSilence": {
               "type": "integer",
               "minimum": 3,
@@ -219,13 +319,18 @@
               "type": "boolean"
             },
             "eventUrl": {
-              "type": "string",
-              "format": "uri",
-              "pattern": "^https?://"
+              "type": "array",
+              "items": {
+                "format": "uri",
+                "pattern": "^https?://"
+              }
             },
             "eventMethod": {
               "type": "string",
-              "enum": ["POST", "GET"]
+              "enum": [
+                "POST",
+                "GET"
+              ]
             }
           }
         }
@@ -233,10 +338,16 @@
     },
     "ncco-stream": {
       "allOf": [
-        { "$ref": "#/definitions/ncco-base" },
+        {
+          "$ref": "#/definitions/ncco-base"
+        },
         {
           "properties": {
-            "action": { "enum": ["stream"] },
+            "action": {
+              "enum": [
+                "stream"
+              ]
+            },
             "streamUrl": {
               "type": "array",
               "items": {
@@ -257,16 +368,24 @@
               "minimum": 0
             }
           },
-          "required": ["streamUrl"]
+          "required": [
+            "streamUrl"
+          ]
         }
       ]
     },
     "ncco-talk": {
       "allOf": [
-        { "$ref": "#/definitions/ncco-base" },
+        {
+          "$ref": "#/definitions/ncco-base"
+        },
         {
           "properties": {
-            "action": { "enum": ["talk"] },
+            "action": {
+              "enum": [
+                "talk"
+              ]
+            },
             "text": {
               "type": "string",
               "maxLength": 1500
@@ -282,7 +401,9 @@
               "$ref": "#/definitions/voices"
             }
           },
-          "required": ["text"]
+          "required": [
+            "text"
+          ]
         }
       ]
     },
@@ -340,7 +461,6 @@
       ]
     }
   },
-
   "type": "array",
   "items": {
     "$ref": "#/definitions/ncco"
